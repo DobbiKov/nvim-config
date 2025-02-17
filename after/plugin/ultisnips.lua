@@ -1,0 +1,5 @@
+-- vim.g.UltiSnipsExpandTrigger = "<tab>"
+-- vim.g.UltiSnipsJumpForwardTrigger = "<c-i>"
+-- vim.g.UltiSnipsJumpBackwardTrigger = "<c-o>"
+--vim.g.UltiSnipsRegionCheckEvents = "InsertEnter"
+--vim.g.UltiSnipsDeleteCheckEvents = "TextChanged,InsertLeave"
