@@ -1,4 +1,4 @@
-local dap = require('dap') 
+local dap = require('dap')
 dap.set_log_level('DEBUG')
 
 vim.keymap.set('n', '<F5>', function() dap.continue() end)
@@ -58,19 +58,19 @@ dap.configurations.c = {
 dap.configurations.cpp = dap.configurations.c;
 
 -- dap ui
-local dapui = require("dapui")
-dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+-- local dapui = require("dapui")
+-- dapui.setup({})
+-- dap.listeners.after.event_initialized["dapui_config"] = function()
+--   dapui.open()
+-- end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
 
-require("dap-python").setup("python")
+require("dap-python").setup("python3")
 require("mason-nvim-dap").setup({
     automatic_setup = true,
     ensure_installed = { "python", "delve", "codelldb", "cpptools" }

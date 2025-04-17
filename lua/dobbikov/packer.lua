@@ -123,6 +123,12 @@ return require('packer').startup(function(use)
   use 'echasnovski/mini.nvim'
   use "lukas-reineke/indent-blankline.nvim"
 
+  -- yazi
+  use {
+      "mikavilpas/yazi.nvim",
+      requires = {"folke/snacks.nvim"}
+  }
+
   -- snippets
   use 'SirVer/ultisnips'
   use 'honza/vim-snippets'

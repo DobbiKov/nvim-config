@@ -35,3 +35,8 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 vim.g.python3_host_prog = '/Users/dobbikov/myenv/bin/python'
+
+vim.api.nvim_create_user_command("Cpr", function(opts)
+    vim.fn.setreg("+", vim.fn.getreg(opts.args))
+end, { nargs = 1 })
+
