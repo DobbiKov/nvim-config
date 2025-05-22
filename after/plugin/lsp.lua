@@ -27,7 +27,7 @@ require('mason-lspconfig').setup({
     'ocamllsp',
     'texlab',
     'clangd',
-    'ts_ls',
+    'ts_ls'
   },
   handlers = {
     function(server_name)
@@ -55,6 +55,11 @@ lspconfig['lua_ls'].setup({
     }
   }
 })
+
+lspconfig['tinymist'].setup({
+    formatterMode = "typstyle"
+})
+
 lspconfig['texlab'].setup({
 })
 lspconfig['clangd'].setup({

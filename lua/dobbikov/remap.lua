@@ -36,3 +36,21 @@ vim.keymap.set("n", "<leader>h", function()
   local buff_hints_enabled_status = vim.lsp.inlay_hint.is_enabled({bufnr = buff_n});
   vim.lsp.inlay_hint.enable(not buff_hints_enabled_status, { bufnr = buff_n });
 end)
+
+vim.api.nvim_set_keymap('n', '<leader>rn', [[:lua RenameFile()<CR>]], { noremap = true })
+
+function RenameFile()
+  local old_name = vim.fn.expand('%')
+  local new_name = vim.fn.input('New name: ', old_name)
+  if new_name == '' then return end
+  vim.cmd('saveas ' .. new_name)
+  vim.fn.delete(old_name)
+  vim.cmd('e! ' .. new_name)
+end
+
+-- obsidian workflow
+-- convert note to template and remove leading white space
+vim.keymap.set("n", "<leader>on", ":ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>")
+-- strip date from note title and replace dashes with spaces
+-- must have cursor on title
+vim.keymap.set("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")

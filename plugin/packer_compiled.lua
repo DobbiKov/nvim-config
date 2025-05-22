@@ -146,6 +146,11 @@ _G.packer_plugins = {
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["markview.nvim"] = {
+    loaded = true,
+    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/markview.nvim",
+    url = "https://github.com/OXY2DEV/markview.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -211,6 +216,11 @@ _G.packer_plugins = {
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -225,14 +235,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["render-markdown.nvim"] = {
-    config = { "\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20render-markdown\frequire\0" },
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/opt/render-markdown.nvim",
-    url = "https://github.com/MeanderingProgrammer/render-markdown.nvim"
   },
   ripgrep = {
     loaded = true,
@@ -282,6 +284,12 @@ _G.packer_plugins = {
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/opt/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
+  ["typst-preview.nvim"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18typst-preview\frequire\0" },
+    loaded = true,
+    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/typst-preview.nvim",
+    url = "https://github.com/chomosuke/typst-preview.nvim"
+  },
   ultisnips = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/ultisnips",
@@ -325,19 +333,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: typst-preview.nvim
+time([[Config for typst-preview.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18typst-preview\frequire\0", "config", "typst-preview.nvim")
+time([[Config for typst-preview.nvim]], false)
 -- Config for: rose-pine
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-treesitter ]]
-vim.cmd [[ packadd render-markdown.nvim ]]
-
--- Config for: render-markdown.nvim
-try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
-
-time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

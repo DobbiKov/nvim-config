@@ -40,3 +40,6 @@ vim.api.nvim_create_user_command("Cpr", function(opts)
     vim.fn.setreg("+", vim.fn.getreg(opts.args))
 end, { nargs = 1 })
 
+-- spell checker spell checker
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true

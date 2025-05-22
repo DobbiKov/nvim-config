@@ -134,15 +134,36 @@ return require('packer').startup(function(use)
   use 'honza/vim-snippets'
   use 'christoomey/vim-tmux-navigator'
   -- markdow
-    use({
-        'MeanderingProgrammer/render-markdown.nvim',
-        after = { 'nvim-treesitter' },
-        requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
-        -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
-        -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
-        config = function()
-            require('render-markdown').setup({})
-        end,
-    })
+    -- use({
+    --     'MeanderingProgrammer/render-markdown.nvim',
+    --     after = { 'nvim-treesitter' },
+    --     requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+    --     -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
+    --     -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
+    --     config = function()
+    --         require('render-markdown').setup({})
+    --     end,
+    -- })
+    --
+    use 'OXY2DEV/markview.nvim'
 -- java
+-- obsidian
+use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  }
+})
+-- typst
+use {
+  'chomosuke/typst-preview.nvim',
+  tag = 'v1.*',
+  config = function()
+    require 'typst-preview'.setup {}
+  end,
+}
 end)
