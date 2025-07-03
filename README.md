@@ -24,6 +24,7 @@ This is my neovim config dot files.
   - [x] completions
   - [x] linter
   - [x] snippets
+  - [x] creating and editing figures using inkscape 
 
 - [x] Full  typst support
   - [x] references
@@ -32,5 +33,10 @@ This is my neovim config dot files.
   - [x] completions
   - [x] linter
   - [x] snippets
+     
+- [x] Obsidian support
+  - [x] Creating notes
+  - [x] References
+  - [x] Completions 
      
 And more, just need to write it here)
