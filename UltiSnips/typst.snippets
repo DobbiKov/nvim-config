@@ -1,12 +1,12 @@
-global !p
-def math():
-    return vim.eval('InTypstMathZone()') == '1'
-endglobal
+# global !p
+# def math():
+#     return vim.eval('InTypstMathZone()') == '1'
+# endglobal
 
-context "math()"
-snippet ff "Fraction" iA
-\frac{$1}{$2}$0
-endsnippet
+# context "math()"
+# snippet ff "Fraction" iA
+# \frac{$1}{$2}$0
+# endsnippet
 
 snippet mk "Math" wA
 $${1}$`!p

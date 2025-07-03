@@ -43,3 +43,11 @@ end, { nargs = 1 })
 -- spell checker spell checker
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
+
+-- json formatting
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "json",
+  callback = function()
+    vim.opt_local.formatprg = "jq"
+  end,
+})

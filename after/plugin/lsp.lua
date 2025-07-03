@@ -37,6 +37,7 @@ require('mason-lspconfig').setup({
 })
 local lspconfig = require('lspconfig')
 
+lspconfig.harper_ls.setup {}
 lspconfig['eslint'].setup({})
 lspconfig['pyright'].setup({})
 lspconfig['ocamllsp'].setup({

@@ -129,11 +129,17 @@ return require('packer').startup(function(use)
       requires = {"folke/snacks.nvim"}
   }
 
+  -- todo
+  use {
+      "folke/todo-comments.nvim",
+      requires = {"nvim-lua/plenary.nvim"}
+  }
+
   -- snippets
   use 'SirVer/ultisnips'
   use 'honza/vim-snippets'
   use 'christoomey/vim-tmux-navigator'
-  -- markdow
+  -- markdown
     -- use({
     --     'MeanderingProgrammer/render-markdown.nvim',
     --     after = { 'nvim-treesitter' },
@@ -141,7 +147,8 @@ return require('packer').startup(function(use)
     --     -- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
     --     -- requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
     --     config = function()
-    --         require('render-markdown').setup({})
+    --         require('render-markdown').setup({
+    --         })
     --     end,
     -- })
     --
@@ -155,7 +162,6 @@ use({
     -- Required.
     "nvim-lua/plenary.nvim",
 
-    -- see below for full list of optional dependencies 👇
   }
 })
 -- typst
@@ -165,5 +171,11 @@ use {
   config = function()
     require 'typst-preview'.setup {}
   end,
+}
+
+-- fzf
+use {
+  "ibhagwan/fzf-lua",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 end)

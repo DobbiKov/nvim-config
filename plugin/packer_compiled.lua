@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/crates.nvim",
     url = "https://github.com/saecki/crates.nvim"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -274,6 +279,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/dobbikov/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["trouble.nvim"] = {
     commands = { "Trouble" },
