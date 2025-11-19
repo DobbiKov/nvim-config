@@ -306,6 +306,7 @@ snippet lr( "left( right)" i
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
 
+
 snippet lr() "left( right)" i
 \left( ${1:${VISUAL}} \right) $0
 endsnippet
@@ -645,6 +646,18 @@ snippet RR "real" iA
 \R
 endsnippet
 
+snippet BB "fancy B" iA
+\mathcal{B}
+endsnippet
+
+snippet MC "mathcal" iA
+\mathcal{$1} 
+endsnippet
+
+snippet Cn "mathcal" iA
+\mathcal{C}^{${1:n}} 
+endsnippet
+
 snippet QQ "Q" iA
 \Q
 endsnippet
@@ -744,4 +757,8 @@ endsnippet
 
 snippet DD "D" iA
 \mathbb{D}
+endsnippet
+
+snippet it "\textit"
+\textit{$1}$0
 endsnippet
