@@ -156,7 +156,7 @@ return require('packer').startup(function(use)
 -- java
 -- obsidian
 use({
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   tag = "*",  -- recommended, use latest release instead of latest commit
   requires = {
     -- Required.
@@ -177,5 +177,14 @@ use {
 use {
   "ibhagwan/fzf-lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+}
+
+
+-- vscode diff
+use {'MunifTanjim/nui.nvim'}
+use{
+  "esmuellert/vscode-diff.nvim",
+  dependencies = { "MunifTanjim/nui.nvim" },
+  cmd = "CodeDiff",
 }
 end)
