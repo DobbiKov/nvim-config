@@ -16,3 +16,7 @@ vim.keymap.set('n', '<leader>ps', function()
     end
   })
 end)
+
+
+vim.keymap.set("n", "<leader>sr", builtin.lsp_references)
+vim.keymap.set("n", "<leader>sd", builtin.lsp_type_definitions)
