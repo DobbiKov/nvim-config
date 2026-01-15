@@ -35,19 +35,22 @@ require('mason-lspconfig').setup({
     end, 
   },
 })
-local lspconfig = require('lspconfig')
+-- local lspconfig = vim.lsp.config()
 
-lspconfig.harper_ls.setup {}
-lspconfig['eslint'].setup({})
-lspconfig['pyright'].setup({})
-lspconfig['ocamllsp'].setup({
-})
-lspconfig['ts_ls'].setup({
+vim.lsp.enable('harper_ls')
+vim.lsp.enable('eslint')
+vim.lsp.enable('pyright')
+vim.lsp.enable('ocamllsp')
+
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
   cmd = { "typescript-language-server", "--stdio" }
 })
-lspconfig.jdtls.setup({})
 
-lspconfig['lua_ls'].setup({
+vim.lsp.enable('jdtls')
+
+vim.lsp.enable('lua_ls')
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -57,13 +60,15 @@ lspconfig['lua_ls'].setup({
   }
 })
 
-lspconfig['tinymist'].setup({
+vim.lsp.enable('tinymist')
+vim.lsp.config('tinymist', {
     formatterMode = "typstyle"
 })
 
-lspconfig['texlab'].setup({
-})
-lspconfig['clangd'].setup({
+vim.lsp.enable('texlab')
+
+vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
   cmd = { "clangd", "--background-index" },
   root_dir = require'lspconfig.util'.root_pattern("compile_commands.json", ".git"),
   on_attach = function(client, bufnr)
