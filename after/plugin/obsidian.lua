@@ -20,7 +20,9 @@ require("obsidian").setup({
     return path:with_suffix(".md")
   end,
   wiki_link_func = "use_alias_only",
-  note_frontmatter_func = function(note)
+  frontmatter = {
+  enabled = true,
+    func = function(note)
     -- Add the title of the note as an alias.
     if note.title then
       note:add_alias(note.title)
@@ -41,4 +43,7 @@ require("obsidian").setup({
 
     return out
   end,
+    sort = { "id", "aliases", "tags" },
+  },
+  legacy_commands = false,
 })
