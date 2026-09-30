@@ -1,55 +1,58 @@
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {
-    "javascript",
-    "python",
-    "rust",
-    "cpp",
-    "c",
-    "lua",
-    "vim",
-    "vimdoc",
-    "query",
-    "markdown",
-    "markdown_inline",
-    "html",
-    "css",
-    "yaml",
-    "json",
-    "latex"
+-- nvim-treesitter `main` branch: no more `configs.setup`, features are opt-in.
+-- Highlighting/folding come from nvim itself, this plugin only ships parsers + queries.
+
+require('nvim-treesitter').install({
+  "arduino", "asm", "bash", "bibtex", "c", "cmake", "cpp", "css", "csv", "dart",
+  "diff", "dockerfile", "dot", "git_config", "gitcommit", "gitignore", "glsl",
+  "go", "html", "htmldjango", "http", "ini", "javascript", "json", "julia",
+  "just", "latex", "lua", "make", "markdown", "markdown_inline", "ocaml",
+  "perl", "python", "query", "requirements", "rust", "sql", "ssh_config",
+  "svelte", "toml", "typescript", "typst", "vim", "vimdoc", "xml", "yaml",
+})
+
+-- latex is handled by vimtex's own syntax
+local no_highlight = { latex = true }
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+    if not lang or no_highlight[lang] then
+      return
+    end
+    pcall(vim.treesitter.start, args.buf, lang)
+  end,
+})
+
+require('nvim-treesitter-textobjects').setup({
+  select = {
+    lookahead = true,
   },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    disable = { "latex" },
-    additional_vim_regex_highlighting = false,
+  move = {
+    set_jumps = true,
   },
-  injections = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        [']a'] = '@parameter.inner',
-      },
-      goto_previous_start = {
-        ['[a'] = '@parameter.inner',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = { ['<leader>a'] = '@parameter.inner' },
-      swap_previous = { ['<leader>A'] = '@parameter.inner' },
-    },
-  },
-}
+})
+
+local select = require('nvim-treesitter-textobjects.select')
+local move = require('nvim-treesitter-textobjects.move')
+local swap = require('nvim-treesitter-textobjects.swap')
+
+vim.keymap.set({ 'x', 'o' }, 'aa', function()
+  select.select_textobject('@parameter.outer', 'textobjects')
+end)
+vim.keymap.set({ 'x', 'o' }, 'ia', function()
+  select.select_textobject('@parameter.inner', 'textobjects')
+end)
+
+vim.keymap.set({ 'n', 'x', 'o' }, ']a', function()
+  move.goto_next_start('@parameter.inner', 'textobjects')
+end)
+vim.keymap.set({ 'n', 'x', 'o' }, '[a', function()
+  move.goto_previous_start('@parameter.inner', 'textobjects')
+end)
+
+vim.keymap.set('n', '<leader>a', function()
+  swap.swap_next('@parameter.inner')
+end)
+vim.keymap.set('n', '<leader>A', function()
+  swap.swap_previous('@parameter.inner')
+end)

@@ -22,9 +22,10 @@ return require('packer').startup(function(use)
 
   use('BurntSushi/ripgrep')
 
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
-  use('nvim-treesitter/nvim-treesitter-textobjects')
-  use('nvim-treesitter/playground')
+  -- `main` branch: master is frozen and does not support nvim 0.12
+  use({ 'nvim-treesitter/nvim-treesitter', branch = 'main', run = ':TSUpdate' })
+  use({ 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' })
+  -- playground dropped: nvim has :Inspect and :InspectTree built in
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')

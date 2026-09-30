@@ -33,6 +33,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- modelines can throw E518 on prose that looks like "vim: http://..."
+vim.opt.modeline = false
+
 vim.g.mapleader = " "
 vim.g.python3_host_prog = '/Users/dobbikov/myenv/bin/python'
 
