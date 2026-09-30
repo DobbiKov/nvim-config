@@ -37,7 +37,7 @@ require('mason-lspconfig').setup({
 })
 -- local lspconfig = vim.lsp.config()
 
-vim.lsp.enable('harper_ls')
+-- vim.lsp.enable('harper_ls')
 vim.lsp.enable('eslint')
 vim.lsp.enable('pyright')
 vim.lsp.enable('ocamllsp')

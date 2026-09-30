@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use('BurntSushi/ripgrep')
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+  use('nvim-treesitter/nvim-treesitter-textobjects')
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
@@ -187,4 +188,10 @@ use{
   dependencies = { "MunifTanjim/nui.nvim" },
   cmd = "CodeDiff",
 }
+
+    -- julia
+    use 'JuliaEditorSupport/julia-vim'
+
+    -- pawn
+    use 'mcnelson/vim-pawn'
 end)
