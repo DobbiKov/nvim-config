@@ -181,6 +181,12 @@ use {
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 
+-- fff
+use {
+    "dmtrKovalenko/fff",
+    run = function() require("fff.download").download_or_build_binary() end
+}
+
 
 -- vscode diff
 use {'MunifTanjim/nui.nvim'}
