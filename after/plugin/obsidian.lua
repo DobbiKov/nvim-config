@@ -1,3 +1,17 @@
+
+---@param opts obsidian.link.LinkCreationOpts
+---@return string
+local wiki_link_alias_only = function(opts)
+  ---@type string
+  local header_or_block = ""
+  if opts.anchor then
+    header_or_block = string.format("#%s", opts.anchor.header)
+  elseif opts.block then
+    header_or_block = string.format("#%s", opts.block.id)
+  end
+  return string.format("[[%s%s]]", opts.label, header_or_block)
+end
+
 require("obsidian").setup({
   workspaces = {
     {
@@ -19,7 +33,9 @@ require("obsidian").setup({
     local path = spec.dir / tostring(spec.title)
     return path:with_suffix(".md")
   end,
-  wiki_link_func = "use_alias_only",
+  link = {
+      style = wiki_link_alias_only
+  },
   frontmatter = {
   enabled = true,
     func = function(note)
